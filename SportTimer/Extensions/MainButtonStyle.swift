@@ -14,15 +14,14 @@ struct MainButtonStyle: ButtonStyle {
         configuration.label
             .font(.headline)
             .frame(minWidth: 100, minHeight: 44)
+            .padding(.horizontal, 16)
             .background(color)
             .foregroundColor(.white)
             .cornerRadius(8)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
-            .animation(.spring(), value: configuration.isPressed)
+            .animation(
+                .interpolatingSpring(stiffness: 300, damping: 15),
+                value: configuration.isPressed
+            )
     }
 }
-
-
-//#Preview {
-//    MainButtonStyle(color: Color.blue)
-//}

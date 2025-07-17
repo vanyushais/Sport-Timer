@@ -10,15 +10,14 @@ import SwiftUI
 struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     @State private var showingImagePicker = false
-//    @State private var profileImage: Image? = Image(systemName: "person.crop.circle")
     @State private var inputImage: UIImage?
-
+    @State private var isBouncing = false
 
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 24) {
-                    // 📸 Аватар
+                    // Аватар
                     if let image = viewModel.avatarImage {
                         Image(uiImage: image)
                             .resizable()
@@ -40,20 +39,10 @@ struct ProfileView: View {
                             }
                     }
 
-//                    profileImage?
-//                        .resizable()
-//                        .scaledToFill()
-//                        .frame(width: 120, height: 120)
-//                        .clipShape(Circle())
-//                        .shadow(radius: 5)
-//                        .onTapGesture {
-//                            showingImagePicker = true
-//                        }
-
                     Text("Твоё здоровье — в твоих руках 💪")
                         .font(.headline)
 
-                    // 📊 Статистика
+                    // Статистика
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
                             Text("Тренировок:")
@@ -71,21 +60,31 @@ struct ProfileView: View {
                     .background(Color(.systemGray6))
                     .cornerRadius(12)
                     .padding(.horizontal)
+                    
+                    // Настройка звука
+                    Toggle(isOn: $viewModel.soundEnabled) {
+                        Text("Воспроизводить звуки")
+                    }
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(12)
+                    .padding(.horizontal)
 
-                    // 🗑 Очистка данных
+                    // Очистка данных
                     Button(role: .destructive) {
                         viewModel.clearAllData()
                     } label: {
                         Text("Очистить все данные")
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.red.opacity(0.8))
+                            .background(AppColors.warning)
                             .foregroundColor(.white)
-                            .cornerRadius(12)
+                            .cornerRadius(8)
                             .padding(.horizontal)
                     }
+                    .buttonStyle(BounceDestructiveStyle())
 
-                    // ℹ️ Информация
+                    // Информация
                     VStack(spacing: 4) {
                         Text("Версия приложения: 1.0")
                         Text("Разработано с ❤️ на SwiftUI")
@@ -100,15 +99,9 @@ struct ProfileView: View {
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: $inputImage)
             }
-
-//            .sheet(isPresented: $showingImagePicker) {
-//                // Пока без реального выбора фото
-//                Text("Выбор изображения пока не реализован")
-//                    .font(.title3)
-//                    .padding()
-//            }
         }
     }
+    
     private func loadImage() {
         guard let selected = inputImage else { return }
         viewModel.saveAvatar(selected)

@@ -15,8 +15,15 @@ class ProfileViewModel: ObservableObject {
     @Published var avatarImage: UIImage?
 
     private let context = PersistenceController.shared.container.viewContext
+    
+    @Published var soundEnabled: Bool {
+        didSet {
+            UserDefaults.standard.set(soundEnabled, forKey: "soundEnabled")
+        }
+    }
 
     init() {
+        self.soundEnabled = UserDefaults.standard.object(forKey: "soundEnabled") as? Bool ?? true
         fetchStatistics()
         loadAvatar()
     }

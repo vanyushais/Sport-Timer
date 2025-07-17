@@ -49,12 +49,12 @@ struct TimerView: View {
                 Button(viewModel.isRunning ? "Пауза" : "Старт") {
                     viewModel.toggleTimer()
                 }
-                .buttonStyle(MainButtonStyle(color: .green))
+                .buttonStyle(MainButtonStyle(color: viewModel.isRunning ? AppColors.primary : AppColors.success))
 
                 Button("Стоп") {
                     viewModel.stopTimer()
                 }
-                .buttonStyle(MainButtonStyle(color: .red))
+                .buttonStyle(MainButtonStyle(color: AppColors.danger))
                 .disabled(!viewModel.hasStarted)
             }
         }

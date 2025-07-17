@@ -13,7 +13,7 @@ struct HistoryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // 🔍 Поиск
+                // Поиск
                 TextField("Поиск...", text: $viewModel.searchText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
@@ -21,7 +21,7 @@ struct HistoryView: View {
                         viewModel.applySearchFilter()
                     }
 
-                // 📜 Список тренировок
+                // Список тренировок
                 List {
                     if viewModel.filteredWorkouts.isEmpty {
                         Text("Нет тренировок")

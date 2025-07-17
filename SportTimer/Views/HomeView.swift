@@ -15,7 +15,7 @@ struct HomeView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    // 👋 Приветствие и статистика
+                    //Приветствие и статистика
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Привет!")
                             .font(.largeTitle)
@@ -30,19 +30,20 @@ struct HomeView: View {
                     }
                     .padding()
 
-                    // 🚀 Кнопка начала тренировки
+                    //Кнопка начала тренировки
                     NavigationLink(destination: TimerView()) {
                         Text("Начать тренировку")
                             .frame(maxWidth: .infinity)
                             .frame(height: 50)
-                            .background(Color.blue)
+                            .background(AppColors.primary)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                             .padding(.horizontal)
                             .shadow(radius: 4)
                     }
+                    .buttonStyle(BounceDestructiveStyle())
 
-                    // 🏋️‍♂️ Последние тренировки
+                    //Последние тренировки
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Последние тренировки")
                             .font(.headline)
