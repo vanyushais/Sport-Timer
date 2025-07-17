@@ -6,9 +6,9 @@
 
 ## 📲 Скриншоты
 
-| Главный экран | Таймер | История | Профиль |
-|---------------|--------|---------|---------|
-| ![home](Screenshots/home.PNG) | ![timer](Screenshots/timer.PNG) | ![history](Screenshots/history.PNG) | ![profile](Screenshots/profile.PNG) |
+| Главный экран | Таймер | История | Профиль | Пример работы |
+|---------------|--------|---------|---------|---------------|
+| ![home](Screenshots/home.PNG) | ![timer](Screenshots/timer.PNG) | ![history](Screenshots/history.PNG) | ![profile](Screenshots/profile.PNG) | ![App Demo](Screenshots/record-App.gif) |
 
 ---
 ![App Demo](Screenshots/record-App.gif)
