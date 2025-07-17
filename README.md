@@ -8,10 +8,10 @@
 
 | Главный экран | Таймер | История | Профиль |
 |---------------|--------|---------|---------|
-| ![home](Screenshots/home.png) | ![timer](Screenshots/timer.png) | ![history](Screenshots/history.png) | ![profile](Screenshots/profile.png) |
+| ![home](Screenshots/home.PNG) | ![timer](Screenshots/timer.PNG) | ![history](Screenshots/history.PNG) | ![profile](Screenshots/profile.PNG) |
 
 ---
-![App Demo](Screenshots/record App.gif)
+![App Demo](Screenshots/record-App.gif)
 ---
 
 ## 🛠 Архитектура и технологии
